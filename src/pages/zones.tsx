@@ -1,5 +1,8 @@
 import { PrismaClient } from '@prisma/client';
 
+import { Meta } from '@/layouts/Meta';
+import { Main } from '@/templates/Main';
+
 const prisma = new PrismaClient();
 
 export default function Zones({ zone, error, isLoading }) {
@@ -12,17 +15,26 @@ export default function Zones({ zone, error, isLoading }) {
   }
 
   return (
-    <div>
-      <h3>ZONES</h3>
+    <Main
+      meta={<Meta title="SCUBAbooker | Contact" description="Lorem ipsum" />}
+    >
+      <div>
+        <h3>ZONES</h3>
 
-      <ul>
-        {zone.map((zone) => (
-          <li key={zone.id}>
-            {zone.name} {zone.description}
-          </li>
-        ))}
-      </ul>
-    </div>
+        <ul>
+          {zone.map((zone) => (
+            <li key={zone.id}>
+              <span>
+                <p>
+                  <strong>{zone.name}</strong>
+                </p>
+              </span>
+              <span> {zone.description}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Main>
   );
 }
 
