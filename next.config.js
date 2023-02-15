@@ -1,4 +1,5 @@
 const path = require('path');
+const { version } = require('./package.json');
 
 /* eslint-disable import/no-extraneous-dependencies */
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
@@ -6,6 +7,9 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 module.exports = withBundleAnalyzer({
+  publicRuntimeConfig: {
+    version,
+  },
   webpack: (config) => {
     config.resolve.alias.components = path.join(__dirname, 'components');
     config.resolve.alias.public = path.join(__dirname, 'public');
