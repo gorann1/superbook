@@ -9,9 +9,7 @@
 - HERO Icons
 - REACT WRAP Balancer
 - @NEXT Font
-
-
-
+- TURBO
 
 Developer experience first:
 
@@ -54,10 +52,6 @@ Built-in feature from Next.js:
 - 🚀 Production-ready
 
 ### Nextless.js SaaS Boilerplate
-
-Build your SaaS product faster with [React SaaS Boilerplate](https://nextlessjs.com).
-
-[![React SaaS Boilerplate Next.js](https://creativedesignsguru.com/assets/images/themes/next-js-saas-starter-kit.jpg)](https://nextlessjs.com)
 
 ### Customization
 

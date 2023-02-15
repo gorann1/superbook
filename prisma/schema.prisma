@@ -200,7 +200,9 @@ model Center {
   id          Int                @id @default(autoincrement())
   name        String
   description String
+  address     String
   slug        String
+  email       String?           @unique
   Ratings     Ratings[]
   Reviews     Review[]
   logo        String
