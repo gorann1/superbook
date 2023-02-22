@@ -1,8 +1,7 @@
+import { LocationRating } from '@components/ui/Ratings/LocationRating';
+import { Meta } from '@layouts/Meta';
 import { PrismaClient } from '@prisma/client';
-
-import { LocationRating } from '@/components/ui/Ratings/LocationRating';
-import { Meta } from '@/layouts/Meta';
-import { Main } from '@/templates/Main';
+import { Main } from '@templates/Main';
 
 const prisma = new PrismaClient();
 
