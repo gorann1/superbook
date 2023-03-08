@@ -1,11 +1,8 @@
 import Heart from '@components/Icons/Heart';
 import { Meta } from '@layouts/Meta';
 import { Main } from '@templates/Main';
-import { useRouter } from 'next/router';
 
 const Index = () => {
-  const router = useRouter();
-
   return (
     <Main
       meta={

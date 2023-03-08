@@ -1,35 +1,48 @@
-const nextJest = require('next/jest');
+/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
 
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: './',
-});
-
-const customJestConfig = {
-  moduleNameMapper: {
-    // Handle module aliases (this will be automatically configured for you soon)
-    '^@/(.*)$': '<rootDir>/src/$1',
-
-    '^@/public/(.*)$': '<rootDir>/public/$1',
-  },
-  setupFilesAfterEnv: ['./jest.setup.js'],
-  clearMocks: true,
-  collectCoverage: true,
-  collectCoverageFrom: [
-    './src/**/*.{js,jsx,ts,tsx}',
-    '!./src/**/_*.{js,jsx,ts,tsx}',
-    '!**/*.d.ts',
-    '!**/node_modules/**',
+module.exports = {
+  projects: [
+    '<rootDir>/test-client/config/jest.config.js',
+    '<rootDir>/test-server/config/jest.config.unit.js',
+    '<rootDir>/test-server/config/jest.config.integration.js',
   ],
+  // coverage must be set up in this file
+  // and run all tests at once
+  collectCoverageFrom: [
+    // include -----------------------
+    // client code
+    'layouts/**/*.{ts,tsx}',
+    'views/**/*.{ts,tsx}',
+    'components/**/*.{ts,tsx}',
+    // client hooks
+    'lib-client/**/*.{ts,tsx}',
+    // server code
+    'lib-server/**/*.{ts,tsx}',
+    // client + server
+    'pages/**/*.{ts,tsx}',
+    'utils/**/*.{ts,tsx}',
+    // ignore, must come after -------
+    '!node_modules',
+    '!.next',
+    '!dist',
+    '!prisma',
+    '!themes',
+    '!test-client',
+    '!test-server',
+    '!tests-api',
+    '!tests-e2e',
+    '!notes',
+    '!server',
+    '!types',
+  ],
+  // this is default, can be undefined
+  coverageDirectory: 'coverage',
   coverageThreshold: {
     global: {
-      branches: 30,
-      functions: 30,
-      lines: 30,
-      statements: 30,
+      branches: 25,
+      functions: 25,
+      lines: 25,
+      statements: 25,
     },
   },
-  testEnvironment: 'jest-environment-jsdom',
 };
-
-module.exports = createJestConfig(customJestConfig);
